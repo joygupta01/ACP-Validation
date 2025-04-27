@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form name="myForm"  onsubmit="validateForm()">
+        Name: <input type="text" name="fname">
+        <input type="submit" value="LogIn">
+        <p id="message"></p>
+      </form>
+      <hr>
+    <p>Enter You AGE and click ENTER:</p>
+    <input id="id1" type="number" min="18" max="75" required>
+    <button onclick="myFunction()">Enter</button>
+    <p>If the age is less than 18 You Can not Enter.</p>
+    <p id="result"></p>
+    <script>
+      function myFunction() {
+        var inpObj = document.getElementById("id1");
+        if (!inpObj.checkValidity()) {
+          document.getElementById("result").innerHTML = inpObj.validationMessage;
+        } else {
+          document.getElementById("result").innerHTML = "Input OK";
+        } 
+      } 
+
+
+      function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+          alert("Name must be filled out");
+          return false;
+        }
+		else document.write("Name submitted");
+    }
+    </script>
+  </body>
+</html>
